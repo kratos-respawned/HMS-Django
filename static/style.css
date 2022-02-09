@@ -1,0 +1,25 @@
+ .h1{  
+    text-align: center;
+   } 
+   .bg {
+    background: url(./hp.jpg) no-repeat fixed;
+    background-size: cover;
+    min-height: 768px;
+    position: relative;
+  }
+  .h{
+    text-align: center;
+    font-size: 50px;
+    padding-top: 260px;
+  }
+  .btn{
+    margin-left: 40%;
+    margin-right: auto;
+  }
+  .navbar .navbar-expand-lg .navbar-light{
+    margin-left: 60%;
+  }
+  .card-body
+  {
+    min-height: 300px;
+  }
