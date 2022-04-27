@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/data.css">
+    <title>Document</title>
+</head>
+
+<body>
+   <main>
+       <div class="container">
+        <section class="search">
+        
+            <form action="view" method="post">
+                <label>Enter Name </label>
+                {% csrf_token %}
+                <input type="text" placeholder="name" name="id">
+                <button type="submit">submit</button>
+            </form>    
+        </section>
+    
+        <section class="display" style="display:{{display}}">
+            {%for dt in db%}
+            <div>{{disp}}</div>
+            <div class="profile"></div>
+            <div class="data">
+                <div class="label">
+                     <div>Name</div>
+                     <div>{{dt.firstName}} {{dt.lastName}}</div> 
+                </div>
+                <div class="label">
+                    <div> Age </div>
+                    <div>{{dt.age}}</div> 
+                 </div>
+                <div class="label">
+                    <div>Sex</div>
+                    <div>{{dt.sex}}</div> 
+                </div>
+                 <div class="label">
+                    <div>Disease</div>
+                    <div>{{dt.disease}}</div> 
+                </div>
+                <div class="label">
+                    <div>Blood Group</div>
+                    <div>{{dt.bloodGroup}}</div> 
+                </div>
+                <div class="label">
+                    <div>Phone Number</div>
+                    <div>{{dt.phoneNumber}}</div> 
+                </div>
+                <div class="label">
+                    <div>Doctor's Name</div>
+                    <div>{{dt.doctorsName}}</div> 
+                </div>
+            </div>    
+            {%endfor%}
+        </section>
+       </div>
+   </main>
+    
+</body>
+</html>

@@ -1,10 +1,183 @@
-#bg-image{
-    background-image: url('./reg.jpg');
-    height: 768px;
- }
- .box{
-     border: 4px solid darkblue;
-     margin-left: 25%;
-     margin-right: 25%;
-     height: 400px;
-    }
+*{
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body{
+    height: 100%;
+}
+.navbar{
+    width: 10%;
+    position: fixed;
+    top: 15px;
+    right: 30px;
+    z-index: 20;
+    text-align: right;
+}
+.navbar a{
+    text-decoration: none;
+    font-size: 1.7rem;
+    font-weight: bold;
+    color: #FFf;
+}
+main{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    place-items: center;
+    /* background-attachment: fixed; */
+    background-image: url(./hpp.jpg);
+    background-size: 100% 100%;
+}
+main .container{
+    width: 100%;
+    height: 100%;
+    background: #8386db; /* Old browsers */
+    background: -moz-linear-gradient(45deg, #8386db 1%, #5057d8 44%, #383de0 65%, #383ee2 81%, #383ee2 81%, #161ae5 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg, #8386db 1%,#5057d8 44%,#383de0 65%,#383ee2 81%,#383ee2 81%,#161ae5 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg, #8386db 1%,#5057d8 44%,#383de0 65%,#383ee2 81%,#383ee2 81%,#161ae5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8386db', endColorstr='#161ae5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    opacity: 0.9;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.form-div{
+    margin-left: 75px;
+    display: grid;
+    width: 569px;
+    height: max-content;
+    padding: 15px 50px 15px 50px;
+    background-color: #fff;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.form-div>p{
+    font-size: 35px;
+    font-weight: 500;
+}
+.form-div>span{
+    font-size: 15px;
+    font-style: italic;
+    color: hsl(93, 5%, 34%)
+}
+form{
+    margin-top: 20px;
+    display: grid;
+    justify-content: center;
+    column-gap: 1.5em;
+    row-gap: .5em;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "firstname lastname" "age sex" "disease disease" "bloodGroup tel" "doctorsName doctorsName" "submit submit";
+}
+form div:nth-child(1){
+    grid-area: firstname;
+}
+form div:nth-child(2){
+    grid-area: lastname;
+}
+form div:nth-child(3){
+    grid-area: age;
+}
+form div:nth-child(4){
+    grid-area: sex;
+}
+form div:nth-child(5){
+    grid-area: disease;
+}
+form div:nth-child(6){
+    grid-area: tel;
+}
+form div:nth-child(7){
+    grid-area: bloodGroup;
+}
+form div:nth-child(8){
+    grid-area: doctorsName;
+}
+form div:nth-child(9){
+    grid-area: submit;
+    width: max-content;
+    place-self: center;
+}
+form div:nth-child(9)>button{
+    background-color:#d5d5d5;
+    border: 0px;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1.25px;
+    outline: none;
+    padding: 15px 45px;
+    border-radius: 7px;
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+form div:nth-child(9)>button:hover{
+    background-color: #FF9090;
+    color: #fff;
+}
+form label{
+    font-size: 18px;
+}
+form input{
+    width: 100%;
+    height: 25px;
+    margin-block: 10px;
+    outline: none;
+    font-size: 13px;
+    border: 1px solid #464646;
+    padding: 5px;
+    color: #464646;
+    background-color: #fff;
+    border-radius: 5px;
+    transition: all 0.5s;
+    font-weight: normal;
+}
+form input:focus{
+    border: 1px solid #FF9090;
+    padding: 5px;
+    background-color: white;
+    color: #FF9090;
+    border: 2px solid #FF9090;
+}
+form input:focus::placeholder{
+    color: #FF9090;
+}
+
+main .container .sidebar{
+    height: 100%;
+    width: 30%;
+    background-color: #FF9090;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+main .container .sidebar>div{
+    color: #fff;
+}
+main .container .sidebar .head{
+    font-size: 2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.75px;
+}
+main .container .sidebar .info{
+    font-size: 1rem;
+    margin-top: 20px;
+    position: relative;
+}
+main .container .sidebar .info::before{
+    content: "";
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120%;
+    height: 1.5px;
+    background-color: #fff;
+}
