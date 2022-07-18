@@ -1,6 +1,6 @@
 # HMS-Django
  
- my sem 2 IPR project\
+ my sem 1 disruptive tech project\
  how to launch server ::-\
    --install django using pip install django\
    --open folder in vscode \

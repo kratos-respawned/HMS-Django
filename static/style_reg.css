@@ -1,12 +1,14 @@
-*{
+* {
     padding: 0;
     margin: 0;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-body{
+
+body {
     height: 100%;
 }
-.navbar{
+
+.navbar {
     width: 10%;
     position: fixed;
     top: 15px;
@@ -14,13 +16,15 @@ body{
     z-index: 20;
     text-align: right;
 }
-.navbar a{
+
+.navbar a {
     text-decoration: none;
     font-size: 1.7rem;
     font-weight: bold;
-    color: #FFf;
+    color: #fff;
 }
-main{
+
+main {
     position: absolute;
     top: 0;
     left: 0;
@@ -31,78 +35,116 @@ main{
     background-image: url(./hpp.jpg);
     background-size: 100% 100%;
 }
-main .container{
+
+main .container {
     width: 100%;
     height: 100%;
-    background: #8386db; /* Old browsers */
-    background: -moz-linear-gradient(45deg, #8386db 1%, #5057d8 44%, #383de0 65%, #383ee2 81%, #383ee2 81%, #161ae5 100%); /* FF3.6-15 */
-    background: -webkit-linear-gradient(45deg, #8386db 1%,#5057d8 44%,#383de0 65%,#383ee2 81%,#383ee2 81%,#161ae5 100%); /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(45deg, #8386db 1%,#5057d8 44%,#383de0 65%,#383ee2 81%,#383ee2 81%,#161ae5 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8386db', endColorstr='#161ae5',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+    background: #8386db;
+    /* Old browsers */
+    background: -moz-linear-gradient(45deg,
+            #8386db 1%,
+            #5057d8 44%,
+            #383de0 65%,
+            #383ee2 81%,
+            #383ee2 81%,
+            #161ae5 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(45deg,
+            #8386db 1%,
+            #5057d8 44%,
+            #383de0 65%,
+            #383ee2 81%,
+            #383ee2 81%,
+            #161ae5 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(45deg,
+            #8386db 1%,
+            #5057d8 44%,
+            #383de0 65%,
+            #383ee2 81%,
+            #383ee2 81%,
+            #161ae5 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8386db', endColorstr='#161ae5', GradientType=1);
+    /* IE6-9 fallback on horizontal gradient */
     opacity: 0.9;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
 }
-.form-div{
+
+.form-div {
     margin-left: 75px;
     display: grid;
     width: 569px;
     height: max-content;
     padding: 15px 50px 15px 50px;
     background-color: #fff;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
-.form-div>p{
+
+.form-div>p {
     font-size: 35px;
     font-weight: 500;
 }
-.form-div>span{
+
+.form-div>span {
     font-size: 15px;
     font-style: italic;
-    color: hsl(93, 5%, 34%)
+    color: hsl(93, 5%, 34%);
 }
-form{
+
+form {
     margin-top: 20px;
     display: grid;
     justify-content: center;
     column-gap: 1.5em;
-    row-gap: .5em;
+    row-gap: 0.5em;
     grid-template-columns: 1fr 1fr;
-    grid-template-areas: "firstname lastname" "age sex" "disease disease" "bloodGroup tel" "doctorsName doctorsName" "submit submit";
+    grid-template-areas: "firstname lastname""age sex""disease disease""bloodGroup tel""doctorsName doctorsName""submit submit";
 }
-form div:nth-child(1){
+
+form div:nth-child(1) {
     grid-area: firstname;
 }
-form div:nth-child(2){
+
+form div:nth-child(2) {
     grid-area: lastname;
 }
-form div:nth-child(3){
+
+form div:nth-child(3) {
     grid-area: age;
 }
-form div:nth-child(4){
+
+form div:nth-child(4) {
     grid-area: sex;
 }
-form div:nth-child(5){
+
+form div:nth-child(5) {
     grid-area: disease;
 }
-form div:nth-child(6){
+
+form div:nth-child(6) {
     grid-area: tel;
 }
-form div:nth-child(7){
+
+form div:nth-child(7) {
     grid-area: bloodGroup;
 }
-form div:nth-child(8){
+
+form div:nth-child(8) {
     grid-area: doctorsName;
 }
-form div:nth-child(9){
+
+form div:nth-child(9) {
     grid-area: submit;
     width: max-content;
     place-self: center;
 }
-form div:nth-child(9)>button{
-    background-color:#d5d5d5;
+
+form div:nth-child(9)>button {
+    background-color: #d5d5d5;
     border: 0px;
     font-size: 0.9rem;
     text-transform: uppercase;
@@ -113,14 +155,18 @@ form div:nth-child(9)>button{
     transition: all 0.5s ease-in-out;
     cursor: pointer;
 }
-form div:nth-child(9)>button:hover{
-    background-color: #FF9090;
+
+form div:nth-child(9)>button:hover {
+    background-color: #ff9090;
     color: #fff;
 }
-form label{
+
+form label {
     font-size: 18px;
 }
-form input{
+
+form input,
+form select {
     width: 100%;
     height: 25px;
     margin-block: 10px;
@@ -134,21 +180,29 @@ form input{
     transition: all 0.5s;
     font-weight: normal;
 }
-form input:focus{
-    border: 1px solid #FF9090;
-    padding: 5px;
-    background-color: white;
-    color: #FF9090;
-    border: 2px solid #FF9090;
-}
-form input:focus::placeholder{
-    color: #FF9090;
+
+form select {
+    height: 36.5px;
+    display: block;
+    margin-top: 10px;
 }
 
-main .container .sidebar{
+form input:focus {
+    border: 1px solid #ff9090;
+    padding: 5px;
+    background-color: white;
+    color: #ff9090;
+    border: 2px solid #ff9090;
+}
+
+form input:focus::placeholder {
+    color: #ff9090;
+}
+
+main .container .sidebar {
     height: 100%;
     width: 30%;
-    background-color: #FF9090;
+    background-color: #ff9090;
     position: absolute;
     right: 0;
     top: 0;
@@ -157,21 +211,25 @@ main .container .sidebar{
     justify-content: center;
     align-items: center;
 }
-main .container .sidebar>div{
+
+main .container .sidebar>div {
     color: #fff;
 }
-main .container .sidebar .head{
+
+main .container .sidebar .head {
     font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 0.75px;
 }
-main .container .sidebar .info{
+
+main .container .sidebar .info {
     font-size: 1rem;
     margin-top: 20px;
     position: relative;
 }
-main .container .sidebar .info::before{
+
+main .container .sidebar .info::before {
     content: "";
     position: absolute;
     top: -10px;

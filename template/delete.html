@@ -18,10 +18,10 @@
        <div class="container">
         <section class="search">
         
-            <form action="view" method="post">
+            <form action="delete_view" method="post">
                 <label>Enter Name </label>
                 {% csrf_token %}
-                <input type="text" placeholder="name" name="id" required>
+                <input type="text" placeholder="name" name="id" id="input">
                 <button type="submit">submit</button>
             </form>    
         </section>
@@ -59,11 +59,17 @@
                     <div>Doctor's Name</div>
                     <div>{{dt.doctorsName}}</div> 
                 </div>
+                <center><form  class="delete" method="post" action="deleteBtn">
+                    {% csrf_token %}
+                    <input type="hidden" name="identity" value="{{nm}}">
+                    <div>Are You Sure ?</div>
+                    <button type="submit">Yes</button>&nbsp;&nbsp;
+                    <a href="/">NO</a>
+                </form></center>
             </div>    
             {%endfor%}
         </section>
        </div>
    </main>
-    
 </body>
 </html>

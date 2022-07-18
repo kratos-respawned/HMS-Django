@@ -1,11 +1,12 @@
 from asyncio.windows_events import NULL
 from ctypes import sizeof
+from os import link
+import re
 from unicodedata import name
 from django.http.response import HttpResponse
 from django.shortcuts import render, HttpResponse
 from hms.models import data
 from django.contrib import messages
-# Create your views here.
 
 
 def index(request):
@@ -16,26 +17,55 @@ def register(request):
     return render(request, 'register.html')
 
 
-def sed(request):
-    return render(request, 'coming_soon.html')
-
-
 def view(request):
     if request.method == "POST":
         nm = request.POST.get('id')
         if nm == '':
-            return render(request, 'data.html')
+            link = '/view'
+            messages.success(request, 'Blank Input')
+            return render(request, 'message.html', {link: 'link'})
         db = data.objects.filter(firstName=nm)
         if bool(db):
             disp = "flex"
             return render(request, 'data.html', {'db': db, 'display': disp})
-        # data.objects.filter(name=nm).delete()
-        # return render(request,'data.html',{'db':db})
         else:
-            return render(request, 'data.html')
+            link = '/view'
+            messages.success(request, 'No Patient Found')
+            return render(request, 'message.html', {link: 'link'})
     else:
         disp = "none"
         return render(request, 'data.html', {'display': disp})
+
+
+def delete_view(request):
+    if request.method == "POST":
+        nm = request.POST.get('id')
+        db = data.objects.filter(firstName=nm)
+        if bool(db):
+            disp = "flex"
+            return render(request, 'delete.html', {'db': db, 'display': disp, 'nm': nm})
+        else:
+            link = '/delete_view'
+            messages.success(request, 'No Patient Found')
+            return render(request, 'message.html', {link: 'link'})
+    else:
+        disp = "none"
+        return render(request, 'delete.html', {'display': disp})
+
+
+def deleteBtn(request):
+    if request.method == "POST":
+        nm = request.POST.get('identity')
+        print(nm)
+        db = data.objects.filter(firstName=nm)
+        print(db)
+        data.objects.filter(firstName=nm).delete()
+        db.delete()
+        messages.success(request, 'Patient discharged Successfully')
+        link = '/home'
+        return render(request, 'message.html', {'link': link})
+    else:
+        return render(request, 'index.html')
 
 
 def sdetails(request):
@@ -52,4 +82,5 @@ def sdetails(request):
                     phoneNumber=phoneNumber, bloodGroup=bloodGroup, doctorsName=doctorsName)
         Data.save()
         messages.success(request, 'Patient Registered Successfully')
-    return render(request, 'register.html')
+        link = '/home'
+        return render(request, 'message.html', {'link': link})
